@@ -1,0 +1,78 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package oops2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author 21cse089
+ */
+public class Oops2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        employee e=new employee();
+        e.getinformation();
+        Scanner o=new Scanner(System.in);
+        System.out.println("enter your income:");
+        double income=o.nextDouble();
+        e.calculatetax(income);
+    }
+    
+}
+abstract class person
+{
+    String name;
+    String gender;
+    double aadhar;
+    abstract void getinformation();
+    abstract void calculatetax(double income);
+}
+class employee extends person
+{
+    void getinformation()
+    {   
+        Scanner o=new Scanner(System.in);
+        System.out.println("enter name:");
+        name=o.next();
+        System.out.println("enter gender:");
+        gender=o.next();
+        System.out.println("enter aadhar:");
+        aadhar=o.nextDouble();
+        
+    }
+      void calculatetax(double income)
+    {
+        double in;
+        in=income;
+        if(in>=190000&&in<200000)
+        {
+            System.out.println("NIL");
+        }
+        else if(in>=200000&&gender.equals("male")&&in<500000)
+        {
+           System.out.println("20% tax"); 
+        }
+        else if(in>=200000&&gender.equals("female")&&in<500000)
+        {
+           System.out.println("10"); 
+        }
+        else if(in>=500000&&gender.equals("male"))
+        {
+           System.out.println("25% tax"); 
+        }
+        else if(in>500000&&gender.equals("female"))
+        {
+           System.out.println("20% tax"); 
+        }
+        
+    }
+
+    
+}
